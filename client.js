@@ -8,6 +8,17 @@ function consultar() {
       }
     });
 }
+
+function consultarUnico() {
+  $.ajax({
+      url: "http://api.algafood.local:8080/formas-pagamento/1",
+      type: "get",
+    
+      success: function(response) {
+        preencherTabela(response);
+      }
+    });
+}
   
 function preencherTabela(formasPagamento) {
   $("#tabela tbody tr").remove();
@@ -81,5 +92,6 @@ function excluir(formaPagamento) {
   });
 }
 
-$("#btn-consultar").click(consultar);
+// $("#btn-consultar").click(consultar);
+$("#btn-consultar").click(consultarUnico);
 $("#btn-cadastrar").click(cadastrar);
